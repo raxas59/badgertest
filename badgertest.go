@@ -41,6 +41,9 @@ var printHeader bool
 
 var db *badger.DB
 
+//
+// Open the badgerdb in /tmp/badger and leave it in global variable db
+//
 func openDb() {
 	var err error
 
@@ -109,6 +112,9 @@ func parseArgs() {
 	printHeader = *pHdrp
 }
 
+//
+// Set the key (pageCount uint64) and associate value (256 bit SHA) with it.
+//
 func setKV(key uint64, val [SHASize] byte) {
 
 	valBuf := val[0:len(val)]
